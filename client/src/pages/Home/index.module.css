@@ -1,0 +1,30 @@
+.inputs {
+    border: solid 1px #222;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: 50px;
+    width: 100px;
+    outline: none;
+    padding: 10px;
+}
+
+.pagesContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    text-align: center;
+}
+
+.pagesButtons {
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+}
+
+.title {
+    text-align: center;
+}

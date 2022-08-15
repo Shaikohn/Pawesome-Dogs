@@ -1,0 +1,100 @@
+.container {
+    display: block;
+    margin: 0px auto;
+    position: relative;
+    width: 320px;
+}
+
+.errors {
+    color: red;
+}
+
+.groupsContainer {
+    display: flex;
+    margin: 0px auto;
+    position: relative;
+    width: 400px;
+}
+
+.groupsInputs {
+    border: solid 1px #222;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 20px;
+    outline: none;
+    padding: 10px;
+    width: 140px;
+}
+
+.inputs {
+    border: solid 1px #222;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    padding: 10px;
+    width: 300px;
+}
+
+.label {
+    display: block;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+}
+
+.temperamentDelete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30px;
+}
+
+.temperamentList {
+    background-color: white;
+    border: 3px solid rgb(70, 151, 151);
+    border-radius: 20px;
+    display: inline-block;
+    font-family: 'DynaPuff', cursive;
+    font-size: 15px;
+    list-style: none;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+.temperamentOption {
+    cursor: pointer;
+    font-family: 'DynaPuff', cursive;
+    font-size: 18px;
+    text-align: center;
+}
+
+.title {
+    font-family: 'DynaPuff', cursive;
+    text-align: center;
+}
+
+.submit {
+    background-color: rgb(70, 151, 151);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    height: 60px;
+    margin-bottom: 20px;
+    width: 300px;
+}
