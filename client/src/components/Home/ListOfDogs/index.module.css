@@ -12,8 +12,8 @@
 
 .div_info {
     flex-direction: column; 
-    font-family: 'Montserrat';
-    height: 200px;
+    font-family: 'Dancing Script', cursive;
+    height: 250px;
     padding: 10px;
 }
 
@@ -31,10 +31,23 @@
     font-size: 18px;
     height: 320px;
     margin-left: 40px;
-    margin-bottom: 33px;
+    margin-bottom: 100px;
     margin-top: 30px;
     padding: 10px;
     text-decoration: none;
     transition: all 0.3s ease;
     width: 240px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.temperaments {
+    font-size: 17px;
+}
+
+.weight {
+    font-weight: bold;
 }

@@ -16,7 +16,7 @@ router.get("/", async(req, res, next) => {
             Promise.all([dogPromiseApi, dogPromiseDb])
         .then((response) => {
             const [dogApi, dogDb] = response
-            let filteredDogApi = dogApi.data.map((d) => {z
+            let filteredDogApi = dogApi.data.map((d) => {
                 return {
                     id: d.id,
                     name: d.name,
@@ -112,5 +112,20 @@ router.post('/', async(req, res, next) => {
         next(error)
     }
 })
+
+router.delete('/:id', async(req, res, next) => {
+    try {
+        const {id} = req.params
+        let deleted = await Dog.destroy({
+            where: {
+                id
+            }
+        })
+        res.sendStatus(204).send(deleted)
+    } catch(error) {
+        next(error)
+    }
+})
+
 module.exports = router;
 

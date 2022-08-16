@@ -27,7 +27,7 @@ export default function Home() {
         const filtered = allDogs.filter(d => d.name.toLowerCase().includes(search.toLowerCase()))
         if(filtered.length === 0) {
             console.log("Sorry, we couldn't find that breed")
-        }
+        } 
         return filtered.slice(currentPage, currentPage + 8)
     }
 
@@ -56,16 +56,18 @@ export default function Home() {
             <div className={styles.pagesContainer} >
                 <button className={styles.pagesButtons} onClick={handlePrevPage}>{"<"}</button>
                 <input className={styles.inputs} onChange={handleOnSearch} placeholder="Search Dogs" type="text" value={search} />
-                <Sort currentPage={currentPage} setCurrentPage={setCurrentPage} />
                 <CreatedByUser currentPage={currentPage} setCurrentPage={setCurrentPage} />
                 <FilterByTemperament currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                <Sort currentPage={currentPage} setCurrentPage={setCurrentPage} />
                 <button className={styles.pagesButtons} onClick={handleNextPage}>{">"}</button>
             </div>
             {
                 allDogs.length !== 0 ? filteredDogs().map((d) => {
+
                     if(Array.isArray(d.temperaments)) {
                         d.temperaments = d.temperaments.map(t => t.name)
                         d.temperaments = d.temperaments.join(", ")
+                        d.temperament = d.temperaments
                     }
                     if(!d.weight_min || d.weight_min === "Na" || d.weight_min === "NaN" || d.weight_min === "aN") {
                         if(!d.weight_max || d.weight_max === "Na" || d.weight_max === "NaN" || d.weight_max === "aN") {

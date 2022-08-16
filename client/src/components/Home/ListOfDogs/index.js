@@ -22,7 +22,7 @@ export default function Dog ({name, image, id, temperament, temperaments, weight
         } else {
             weight_max = (parseInt(weight_min) + 7).toString();
         }
-    }
+    } 
 
     if(!temperament) {
         temperament = "Stubborn, Active, Happy, Dutiful, Confident"
@@ -36,13 +36,13 @@ export default function Dog ({name, image, id, temperament, temperaments, weight
             </div>
             <div className={styles.div_info}>
                 <div>
-                    <h3> {name} </h3>
+                    <p className={styles.name}> {name} </p>
                 </div>
                 <div>
-                    <h4> {`${weight_min} - ${weight_max}`} KG </h4>
+                    <p className={styles.weight}> {`${weight_min} - ${weight_max}`} KG </p>
                 </div>
                 <div>
-                    {temperament ? temperament : temperaments} 
+                    <p className={styles.temperaments}>{temperament}</p>
                 </div>
             </div>
         </div>

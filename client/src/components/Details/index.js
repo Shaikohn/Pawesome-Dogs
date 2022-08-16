@@ -1,5 +1,4 @@
 import styles from "./index.module.css"
-import Error404 from "../Errors/Error404"
 
 export default function Details({dog}) {
     
@@ -48,10 +47,10 @@ export default function Details({dog}) {
     return (
         <div>
             {
-            dog.id ? <div className={styles.container} key={dog?.id}>
-            <div>
-                <img alt={dog?.name} className={styles.image} src={dog?.image} /> 
-            </div>
+            <div className={styles.container} key={dog?.id}>
+                <div>
+                    <img alt={dog?.name} className={styles.image} src={dog?.image} /> 
+                </div>
             <div className={styles.infoContainer}>
                 <div>
                     <h1 className={styles.title}> {dog?.name} </h1>
@@ -69,7 +68,7 @@ export default function Details({dog}) {
                     <p className={styles.info}>Temperament: {dog?.temperament ? dog?.temperament : dog?.temperaments}   </p>
                 </div>
             </div>
-        </div> : <Error404 />
+        </div> 
             }
             
         </div>

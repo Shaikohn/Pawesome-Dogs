@@ -73,7 +73,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
         }
         case FILTER_BY_TEMPERAMENT:
             const dogsTemperament = state.filteredDogs
-            const filter = payload === 'All' ? dogsTemperament : dogsTemperament.filter(d => ((d.temperament /* || d.temperaments */) || []).includes(payload))
+            const filter = payload === 'All' ? dogsTemperament : dogsTemperament.filter(d => ((d.temperament) || []).includes(payload))
             return {
                 ...state,
                 allDogs: filter
