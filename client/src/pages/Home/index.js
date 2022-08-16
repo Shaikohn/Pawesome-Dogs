@@ -85,6 +85,10 @@ export default function Home() {
                         }
                     }
 
+                    if(!d.temperament) {
+                        d.temperament = "Stubborn, Active, Happy, Dutiful, Confident"
+                    }
+
                     return <Dog 
                     id={d.id}
                     image={d.image} 
