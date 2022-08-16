@@ -113,19 +113,5 @@ router.post('/', async(req, res, next) => {
     }
 })
 
-router.delete('/:id', async(req, res, next) => {
-    try {
-        const {id} = req.params
-        let deleted = await Dog.destroy({
-            where: {
-                id
-            }
-        })
-        res.sendStatus(204).send(deleted)
-    } catch(error) {
-        next(error)
-    }
-})
-
 module.exports = router;
 
