@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import { getTemperament, postDog } from '../../redux/actions';
 import styles from "./index.module.css"
