@@ -165,19 +165,19 @@ export default function Create() {
                 <h1 className={styles.title}>Create your prop breed!</h1>
                 <div className={styles.container}>
                     <label  className={styles.label} htmlFor="name">Name</label>
-                    <input autocomplete="off" className={styles.inputs} name="name" type="text" placeholder='Name' value={input.name} onChange={handleChange}  />
+                    <input autoComplete="off" className={styles.inputs} name="name" type="text" placeholder='Name' value={input.name} onChange={handleChange}  />
                     <p className={styles.errors}> {errors.name} </p>
                 </div>
                 <div className={styles.container}>
                     <label className={styles.label} htmlFor="image">Image</label>
-                    <input autocomplete="off" className={styles.inputs} type="text" name="image" onChange={handleChange} placeholder="Insert an URL" value={input.image} />
+                    <input autoComplete="off" className={styles.inputs} type="text" name="image" onChange={handleChange} placeholder="Insert an URL" value={input.image} />
                     <p className={styles.errors}> {errors.image} </p>
                 </div>
                     <div className={styles.container}>
                         <label className={styles.label} htmlFor="life_span">Life Span</label>
                             <div className={styles.groupsContainer }>
-                                <input autocomplete="off" className={styles.groupsInputs} name="life_span_min" type="text" placeholder='Min' value={input.life_span_min} onChange={handleChange} />
-                                <input autocomplete="off" className={styles.groupsInputs} name="life_span_max" type="text" placeholder='Max' value={input.life_span_max} onChange={handleChange} />
+                                <input autoComplete="off" className={styles.groupsInputs} name="life_span_min" type="text" placeholder='Min' value={input.life_span_min} onChange={handleChange} />
+                                <input autoComplete="off" className={styles.groupsInputs} name="life_span_max" type="text" placeholder='Max' value={input.life_span_max} onChange={handleChange} />
                             </div>
                         <p className={styles.errors}> {errors.life_span_min} </p>
                         <p className={styles.errors}> {errors.life_span_max} </p>
@@ -185,8 +185,8 @@ export default function Create() {
                     <div className={styles.container}>
                         <label className={styles.label} htmlFor="weight">Weight (KG)</label>
                             <div className={styles.groupsContainer }>
-                                <input autocomplete="off" className={styles.groupsInputs} name="weight_min" type="text" placeholder='Min' value={input.weight_min} onChange={handleChange} />
-                                <input autocomplete="off" className={styles.groupsInputs} name="weight_max" type="text" placeholder='Max' value={input.weight_max} onChange={handleChange} />
+                                <input autoComplete="off" className={styles.groupsInputs} name="weight_min" type="text" placeholder='Min' value={input.weight_min} onChange={handleChange} />
+                                <input autoComplete="off" className={styles.groupsInputs} name="weight_max" type="text" placeholder='Max' value={input.weight_max} onChange={handleChange} />
                             </div>
                         <p className={styles.errors}> {errors.weight_min} </p>
                         <p className={styles.errors}> {errors.weight_max} </p>
@@ -194,8 +194,8 @@ export default function Create() {
                     <div className={styles.container}>
                         <label className={styles.label} htmlFor="height">Height (CM)</label>
                             <div className={styles.groupsContainer }>
-                                <input autocomplete="off" className={styles.groupsInputs} name="height_min" type="text" placeholder='Min' value={input.height_min} onChange={handleChange} />
-                                <input autocomplete="off" className={styles.groupsInputs} name="height_max" type="text" placeholder='Max' value={input.height_max} onChange={handleChange} />
+                                <input autoComplete="off" className={styles.groupsInputs} name="height_min" type="text" placeholder='Min' value={input.height_min} onChange={handleChange} />
+                                <input autoComplete="off" className={styles.groupsInputs} name="height_max" type="text" placeholder='Max' value={input.height_max} onChange={handleChange} />
                             </div>
                         <p className={styles.errors}> {errors.height_min} </p>
                         <p className={styles.errors}> {errors.height_max} </p>
