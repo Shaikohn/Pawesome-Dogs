@@ -96,7 +96,7 @@ export default function Create() {
         life_span_min: "",
         life_span_max: "",
         temperament: []
-    });
+    })
 
     useEffect(()=> {
     dispatch(getTemperament())
