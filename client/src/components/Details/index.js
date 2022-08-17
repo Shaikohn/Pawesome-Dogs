@@ -65,7 +65,7 @@ export default function Details({dog}) {
                 <div>
                     <p className={styles.info}> Height: {`${dog?.height_min} - ${dog?.height_max  ? dog.height_max : dog.height_min}`} CM</p>
                 </div>
-                    <p className={styles.info}>Temperament: {dog?.temperament ? dog?.temperament : dog?.temperaments}   </p>
+                    <p className={styles.info}>Temperament: {dog?.temperaments ? dog?.temperaments : dog?.temperament}   </p>
                 </div>
             </div>
         </div> 

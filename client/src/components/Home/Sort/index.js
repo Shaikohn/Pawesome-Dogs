@@ -6,8 +6,6 @@ export default function Sort({currentPage, setCurrentPage}) {
 
     let dispatch = useDispatch()
 
-
-
     function handleChange(e){
         const value = e.target.value;
         if(value === "name_asc" || value === "name_dsc") {
