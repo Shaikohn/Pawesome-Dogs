@@ -81,7 +81,6 @@ function validate(value) {
 }
 
 export default function Create() {
-    const history = useHistory();
     const dispatch = useDispatch()
     const temperaments = useSelector(state => state.temperaments)
     const [errors, setErrors] = useState({});
@@ -149,7 +148,6 @@ export default function Create() {
                     temperament: []
                 })
                 setSelectNameState([])
-                history.push('/dogs')
                 } catch (error) {
             console.log(error)
             }

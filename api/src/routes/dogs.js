@@ -66,11 +66,6 @@ router.get("/:id", async (req, res, next) => {
             const [dogApi, dogDb] = response
             let filteredDogApi = dogApi.data.map((d) => {
 
-                if(Array.isArray(d.temperament)) {
-                    d.temperament = d.temperament.map(t => t.name)
-                    d.temperament = d.temperament.join(", ")
-                }
-
                 return {
                     id: d.id,
                     name: d.name,
