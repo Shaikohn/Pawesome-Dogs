@@ -6,7 +6,6 @@ import NavBar from "../../components/NavBar";
 import Spinner from "../../components/Spinner";
 import { clearPage, getDogDetails } from "../../redux/actions";
 
-
 export default function DogDetails() {
     const {id} = useParams()
     const dispatch = useDispatch()
@@ -23,7 +22,7 @@ export default function DogDetails() {
         <div>
             <NavBar />
             {
-                dog[0] === undefined ? <Spinner /> : <Details dog={dog[0]} /> 
+                dog[0] === undefined ? <Spinner /> : <Details dog={dog[0]} />
             }
         </div>
     )

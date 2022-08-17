@@ -56,14 +56,14 @@ export default function Details({dog}) {
                     <h1 className={styles.title}> {dog?.name} </h1>
                 </div>
                 <div>
-                    <p className={styles.info}> Life span: {`${dog?.life_span_min} - ${dog.life_span_max ? dog.life_span_max : "13"}` } years </p>
+                    <p className={styles.info}> Life span: {`${dog?.life_span_min} - ${dog.life_span_max}` } years </p>
                 </div>
                 <div>
-                    <p className={styles.info}> Weight: {`${dog?.weight_min} - ${dog?.weight_max ? dog.weight_max : dog.weight_min}`} KG </p>
+                    <p className={styles.info}> Weight: {`${dog?.weight_min} - ${dog?.weight_max}`} KG </p>
                 </div>
                 <div>
                 <div>
-                    <p className={styles.info}> Height: {`${dog?.height_min} - ${dog?.height_max  ? dog.height_max : dog.height_min}`} CM</p>
+                    <p className={styles.info}> Height: {`${dog?.height_min} - ${dog?.height_max}`} CM</p>
                 </div>
                     <p className={styles.info}>Temperament: {dog?.temperaments ? dog?.temperaments : dog?.temperament}   </p>
                 </div>

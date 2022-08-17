@@ -13,7 +13,7 @@ import Sort from "../../components/Home/Sort";
 export default function Home() {
     let dispatch = useDispatch()
     let allDogs = useSelector((state) => state.allDogs)
-    console.log(allDogs)
+    console.log('All dogs', allDogs)
     const [currentPage, setCurrentPage] = useState(0)
     const [search, setSearch] = useState('')
     useEffect(() => {
