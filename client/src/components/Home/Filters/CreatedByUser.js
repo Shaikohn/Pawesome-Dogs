@@ -3,13 +3,14 @@ import { filterCreatedDogs } from "../../../redux/actions"
 import styles from "./User.module.css"
 
 
-export default function CreatedByUser ({currentPage, setCurrentPage}) {
+export default function CreatedByUser ({currentPage, setCurrentPage, setNumberPage}) {
 
     const dispatch = useDispatch()
 
     function handleSelect(e) {
         const value = e.target.value
         setCurrentPage(0)
+        setNumberPage(1)
         dispatch(filterCreatedDogs(value))
     }
 

@@ -4,7 +4,7 @@ import { getTemperament, filterByTemperament } from "../../../redux/actions"
 import styles from "./Temperament.module.css"
 
 
-export default function FilterByTemperament({currentPage, setCurrentPage}) {
+export default function FilterByTemperament({currentPage, setCurrentPage, setNumberPage}) {
 
     const dispatch = useDispatch()
     const temp = useSelector(state => state.temperaments)
@@ -12,6 +12,7 @@ export default function FilterByTemperament({currentPage, setCurrentPage}) {
     function handleFilter(e) {
         const value = e.target.value
         setCurrentPage(0)
+        setNumberPage(1)
         dispatch(filterByTemperament(value))
     }
 

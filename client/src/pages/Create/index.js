@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import { getTemperament, postDog } from '../../redux/actions';
 import styles from "./index.module.css"
+import Swal from "sweetalert2"
+import { redirect } from "react-router-dom";
 
 function validate(value) {
     let errors = {}
@@ -133,7 +135,6 @@ export default function Create() {
     function handleSubmit(e){
         e.preventDefault();
         if(!errors.name && !errors.height_min && !errors.height_max &&!errors.weight_min && !errors.weight_max && !errors.life_span_min && !errors.life_span_max && !errors.temperament) {
-            try {
                 dispatch(postDog(input))
                 setInput({
                     image:"",
@@ -147,9 +148,19 @@ export default function Create() {
                     temperament: []
                 })
                 setSelectNameState([])
-                } catch (error) {
-            console.log(error)
-            }
+                Swal.fire({
+                    title: "Success",
+                    text: 'Dog created!',
+                    icon: "success",
+                    timer: 3000,
+                });
+        } else {
+            Swal.fire({
+                title: "Error",
+                text: 'Complete all the info!',
+                icon: "error",
+                timer: 3000,
+            });
         } 
     }
 

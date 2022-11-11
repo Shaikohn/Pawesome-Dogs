@@ -1,4 +1,3 @@
-/* import { Link } from "react-router-dom"; */
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getAllDogs } from "../../redux/actions";
@@ -9,12 +8,14 @@ import CreatedByUser from "../../components/Home/Filters/CreatedByUser";
 import FilterByTemperament from "../../components/Home/Filters/FilterByTemperament";
 import styles from "./index.module.css"
 import Sort from "../../components/Home/Sort";
+import Swal from "sweetalert2"
 
 export default function Home() {
     let dispatch = useDispatch()
     let allDogs = useSelector((state) => state.allDogs)
     console.log('All dogs', allDogs)
-    const [currentPage, setCurrentPage] = useState(0)
+    let [currentPage, setCurrentPage] = useState(0)
+    let [numberPage, setNumberPage] = useState(1)
     const [search, setSearch] = useState('')
     useEffect(() => {
         dispatch(getAllDogs())
@@ -26,7 +27,15 @@ export default function Home() {
         } 
         const filtered = allDogs.filter(d => d.name.toLowerCase().includes(search.toLowerCase()))
         if(filtered.length === 0) {
-            console.log("Sorry, we couldn't find that breed")
+            Swal.fire({
+                title: "Error",
+                text: 'Sorry, we couldnt find that breed',
+                icon: "error",
+                timer: 3000,
+            });
+            setCurrentPage(0)
+            setNumberPage(1)
+            setSearch("")
         } 
         return filtered.slice(currentPage, currentPage + 8)
     }
@@ -34,19 +43,21 @@ export default function Home() {
     function handleNextPage() {
         if(allDogs.filter(d => d.name.includes(search)).length > currentPage + 8) {
             setCurrentPage(currentPage + 8)
-
+            setNumberPage(numberPage + 1)
         }
     }
 
     function handlePrevPage() {
         if(currentPage > 0) {
             setCurrentPage(currentPage - 8)
+            setNumberPage(numberPage - 1)
         }
     }
 
     function handleOnSearch(e) {
         setCurrentPage(0)
         setSearch(e.target.value)
+        setNumberPage(1)
     }
 
     return (
@@ -54,11 +65,12 @@ export default function Home() {
             <NavBar />
             <h1 className={styles.title}>Search your favorite breeds!</h1>
             <div className={styles.pagesContainer} >
+                {numberPage}
                 <button className={styles.pagesButtons} onClick={handlePrevPage}>{"<"}</button>
                 <input className={styles.inputs} onChange={handleOnSearch} placeholder="Search Dogs" type="text" value={search} />
-                <CreatedByUser currentPage={currentPage} setCurrentPage={setCurrentPage} />
-                <FilterByTemperament currentPage={currentPage} setCurrentPage={setCurrentPage} />
-                <Sort currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                <CreatedByUser currentPage={currentPage} setCurrentPage={setCurrentPage} setNumberPage={setNumberPage}  />
+                <FilterByTemperament currentPage={currentPage} setCurrentPage={setCurrentPage} setNumberPage={setNumberPage} />
+                <Sort currentPage={currentPage} setCurrentPage={setCurrentPage} setNumberPage={setNumberPage}  />
                 <button className={styles.pagesButtons} onClick={handleNextPage}>{">"}</button>
             </div>
             {
@@ -97,7 +109,8 @@ export default function Home() {
                     weight_min={d.weight_min}
                     temperament={d.temperament}
                     temperaments={d.temperaments}  
-                    key={d.id} /> 
+                    key={d.id}
+                    origin={d.origin} /> 
                 }) : <Spinner /> 
             }
         </div>

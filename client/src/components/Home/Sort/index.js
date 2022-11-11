@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { orderByName, orderByWeight } from "../../../redux/actions";
 import styles from "./index.module.css"
 
-export default function Sort({currentPage, setCurrentPage}) {
+export default function Sort({currentPage, setCurrentPage, setNumberPage}) {
 
     let dispatch = useDispatch()
 
@@ -10,10 +10,12 @@ export default function Sort({currentPage, setCurrentPage}) {
         const value = e.target.value;
         if(value === "name_asc" || value === "name_dsc") {
             setCurrentPage(0)
+            setNumberPage(1)
             dispatch(orderByName(value))
         } 
         if(value === "weight_asc" || value === "weight_dsc") {
             setCurrentPage(0)
+            setNumberPage(1)
             dispatch(orderByWeight(value))
         }
     } 

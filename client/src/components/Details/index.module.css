@@ -1,13 +1,15 @@
 .image{
-    height: 240px;
+    height: 480px;
     border: 5px solid rgb(104, 95, 95);
     border-radius: 20px;
     border-style: solid;
-    max-width: 360px;
+    margin-left: 40px;
+    max-width: 480px;
     overflow: hidden;
 }
 
 .container {
+    display: flex;
     margin-top: 20px;
     text-align: center;
 }

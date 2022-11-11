@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Swal from "sweetalert2"
 export const GET_ALL_DOGS = "GET_ALL_DOGS"
 export const GET_DOG_DETAILS = "GET_DOG_DETAILS"
 export const SEARCH_DOGS = "SEARCH_DOGS"
@@ -70,7 +71,12 @@ export const postDog = (payload) => {
             return dispatch({type: POST_DOG})
         } 
         catch (error) {
-            console.log(error)
+            Swal.fire({
+                title: "Error",
+                text: 'Complete all the info!',
+                icon: "error",
+                timer: 3000,
+            });
         }
     }
 }

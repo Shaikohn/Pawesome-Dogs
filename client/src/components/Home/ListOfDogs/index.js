@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import styles from "./index.module.css"
 
-export default function Dog ({name, image, id, temperament, weight_min, weight_max}) {
+export default function Dog ({name, image, id, temperament, weight_min, weight_max, origin}) {
     return (
         <Link className={styles.linkStyle} to={`/dogs/${id}`}>
         <div key={id} className={styles.container}>
@@ -17,6 +17,9 @@ export default function Dog ({name, image, id, temperament, weight_min, weight_m
                 </div>
                 <div>
                     <p className={styles.temperaments}>{temperament}</p>
+                </div>
+                <div>
+                    <p>{origin}</p>
                 </div>
             </div>
         </div>

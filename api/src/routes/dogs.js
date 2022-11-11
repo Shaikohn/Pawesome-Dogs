@@ -23,6 +23,7 @@ router.get("/", async(req, res, next) => {
                     image: d.image.url,
                     weight_min: d.weight.metric.slice(0, 2).trim(),
                     weight_max: d.weight.metric.slice(-2).trim(),
+                    origin: d.origin,
                     temperament: d.temperament
                 }
             })
@@ -42,6 +43,7 @@ router.get("/", async(req, res, next) => {
                     image: d.image.url,
                     weight_min: d.weight.metric.slice(0, 2).trim(),
                     weight_max: d.weight.metric.slice(-2).trim(),
+                    origin: d.origin,
                     temperament: d.temperament
                 }
             })
@@ -76,6 +78,7 @@ router.get("/:id", async (req, res, next) => {
                     height_max: d.height.metric.slice(4).trim(),
                     life_span_min: d.life_span.slice(0, 2).trim(),
                     life_span_max: d.life_span.slice(4, -6).trim(),
+                    origin: d.origin,
                     temperament: d.temperament
                 }
             })
