@@ -118,24 +118,24 @@ El modelo de la base de datos debía tener las siguientes entidades:
 
 ## Backend
 
-Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
+Se debía desarrollar un servidor en Node/Express con las siguientes rutas:
 
 - [ ] __GET /dogs__:
   - Obtener un listado de las razas de perro
-  - Debe devolver solo los datos necesarios para la ruta principal
+  - Debía devolver solo los datos necesarios para la ruta principal
 - [ ] __GET /dogs?name="..."__:
   - Obtener un listado de las razas de perro que contengan la palabra ingresada como query parameter
   - Si no existe ninguna raza de perro mostrar un mensaje adecuado
 - [ ] __GET /dogs/{idRaza}__:
   - Obtener el detalle de una raza de perro en particular
-  - Debe traer solo los datos pedidos en la ruta de detalle de raza de perro
+  - Debía traer solo los datos pedidos en la ruta de detalle de raza de perro
   - Incluir los temperamentos asociados
 - [ ] __POST /dogs__:
   - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
   - Crea una raza de perro en la base de datos relacionada con sus temperamentos
 - [ ] __GET /temperaments__:
   - Obtener todos los temperamentos posibles
-  - En una primera instancia deberán obtenerlos desde la API externa y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
+  - En una primera instancia debía obtenerlos desde la API externa y guardarlos en mi propia base de datos y luego ya utilizarlos desde allí
 
   ### Únicos Endpoints/Flags que pueden utilizar
 
