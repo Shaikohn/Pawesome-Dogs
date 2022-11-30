@@ -142,4 +142,4 @@ Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
 - GET <https://api.thedogapi.com/v1/breeds>
 - GET <https://api.thedogapi.com/v1/breeds/search?q={raza_perro}>
 
-__IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
+__IMPORTANTE__: No estaba permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades fueron implementadas por mí mismo.
