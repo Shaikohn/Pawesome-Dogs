@@ -4,6 +4,8 @@
 
 <img height="200" src="./dog.png" />
 
+- [ ] Spanish
+
 En mi cursada en el Bootcamp de Soy Henry tuve que realizar un proyecto individual en un período de 3 semanas, el cual finalizado el período de tiempo tuve que presentarlo en vivo, defenderlo y realizar cambios en el código en el momento.
 
 ## Objetivos del Proyecto
@@ -144,7 +146,7 @@ Se debía desarrollar un servidor en Node/Express con las siguientes rutas:
 
 __IMPORTANTE__: No estaba permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades fueron implementadas por mí mismo.
 
-/// English
+- [ ] English
 
 In the Soy Henry Bootcamp I had to make an individual project in a period of 3 weeks, which at the end of the period, I had to present it live, defend it and make changes to the code at the moment.
 
