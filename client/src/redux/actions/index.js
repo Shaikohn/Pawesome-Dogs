@@ -11,7 +11,7 @@ export const POST_DOG = "POST_DOG"
 export const FILTER_BY_TEMPERAMENT = "FILTER_BY_TEMPERAMENT"
 export const FILTER_CREATED_DOGS = "FILTER_CREATED_DOGS"
 
-const baseURL = 'https://dogs-app-backend-production.up.railway.app/'
+const baseURL = 'https://dogs-app-backend-production.up.railway.app'
 
 
 export const getAllDogs = () => {
