@@ -4,7 +4,6 @@ import NavBar from '../../components/NavBar';
 import { getTemperament, postDog } from '../../redux/actions';
 import styles from "./index.module.css"
 import Swal from "sweetalert2"
-import { redirect } from "react-router-dom";
 
 function validate(value) {
     let errors = {}

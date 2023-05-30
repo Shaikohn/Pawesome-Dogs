@@ -12,20 +12,19 @@ import Swal from "sweetalert2"
 
 export default function Home() {
     let dispatch = useDispatch()
-    let allDogs = useSelector((state) => state.allDogs)
-    console.log('All dogs', allDogs)
+    let allDogs = useSelector((state) => state.filteredDogs)
+    const [search, setSearch] = useState('')
+    const filtered = allDogs.filter(d => d.name.toLowerCase().includes(search.toLowerCase()))
     let [currentPage, setCurrentPage] = useState(0)
     let [numberPage, setNumberPage] = useState(1)
-    const [search, setSearch] = useState('')
     useEffect(() => {
         dispatch(getAllDogs())
     }, [dispatch])
 
-    function filteredDogs() {
+    function filteredDog() {
         if(search.length === 0) {
             return allDogs.slice(currentPage, currentPage + 8);
         } 
-        const filtered = allDogs.filter(d => d.name.toLowerCase().includes(search.toLowerCase()))
         if(filtered.length === 0) {
             Swal.fire({
                 title: "Error",
@@ -74,7 +73,7 @@ export default function Home() {
                 <button className={styles.pagesButtons} onClick={handleNextPage}>{">"}</button>
             </div>
             {
-                allDogs.length !== 0 ? filteredDogs().map((d) => {
+                allDogs.length !== 0 ? filteredDog().map((d) => {
 
                     if(Array.isArray(d.temperaments)) {
                         d.temperaments = d.temperaments.map(t => t.name)

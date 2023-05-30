@@ -11,13 +11,10 @@ export const POST_DOG = "POST_DOG"
 export const FILTER_BY_TEMPERAMENT = "FILTER_BY_TEMPERAMENT"
 export const FILTER_CREATED_DOGS = "FILTER_CREATED_DOGS"
 
-const baseURL = 'https://dogs-app-backend-production.up.railway.app'
-
-
 export const getAllDogs = () => {
     return async function(dispatch) {
         try {
-            let dogs = (await axios(`${baseURL}/dogs`)).data
+            let dogs = (await axios(`/dogs`)).data
             return dispatch({type: GET_ALL_DOGS, payload: dogs})
         }
         catch (error) {
@@ -29,7 +26,7 @@ export const getAllDogs = () => {
 export const searchDogs = (name) => {
     return async function(dispatch) {
         try {
-            let search = (await axios(`${baseURL}/dogs?name=${name} `)).data
+            let search = (await axios(`/dogs?name=${name} `)).data
             return dispatch({type: SEARCH_DOGS, payload: search})
 
         }
@@ -43,7 +40,7 @@ export const searchDogs = (name) => {
 export const getDogDetails = (id) => {
     return async function(dispatch) {
         try {
-            let details = (await axios(`${baseURL}/dogs/${id}`)).data
+            let details = (await axios(`/dogs/${id}`)).data
             return dispatch({type: GET_DOG_DETAILS, payload: details})
         }
         catch (error) {
@@ -55,7 +52,7 @@ export const getDogDetails = (id) => {
 export const getTemperament = () => {
     return async function(dispatch) {
         try {
-            let temperaments = (await axios(`${baseURL}/temperaments`)).data;
+            let temperaments = (await axios(`/temperaments`)).data;
             let allTemps = temperaments.map(e => e)
             return dispatch({type: GET_TEMPERAMENT, payload: allTemps
         })
@@ -69,7 +66,7 @@ export const getTemperament = () => {
 export const postDog = (payload) => {
     return async function(dispatch) {
         try {
-            await axios.post(`${baseURL}/dogs`, payload);
+            await axios.post(`/dogs`, payload);
             return dispatch({type: POST_DOG})
         } 
         catch (error) {

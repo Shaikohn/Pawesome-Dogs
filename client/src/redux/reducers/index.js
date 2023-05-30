@@ -40,7 +40,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 details: {}
             }
         case ORDER_BY_NAME:
-            const orderDogsName = payload === "name_asc" ?
+            const orderAllDogsName = payload === "name_asc" ?
                 state.allDogs.slice().sort(function(a, b) {
                     if(a.name.toLowerCase() < b.name.toLowerCase()) {return -1}
                     if(b.name.toLowerCase() < a.name.toLowerCase()) {return 1}
@@ -51,12 +51,24 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     if(a.name.toLowerCase() > b.name.toLowerCase()) {return 1}
                     return 0;
         })
+        const orderFilteredDogsName = payload === "name_asc" ?
+                state.filteredDogs.slice().sort(function(a, b) {
+                    if(a.name.toLowerCase() < b.name.toLowerCase()) {return -1}
+                    if(b.name.toLowerCase() < a.name.toLowerCase()) {return 1}
+                    return 0;
+                }) : 
+                state.filteredDogs.slice().sort(function(a, b) {
+                    if(a.name.toLowerCase() > b.name.toLowerCase()) {return -1}
+                    if(a.name.toLowerCase() > b.name.toLowerCase()) {return 1}
+                    return 0;
+        })
         return {
             ...state,
-            allDogs: orderDogsName
+            allDogs: orderAllDogsName,
+            filteredDogs: orderFilteredDogsName,
         }
         case ORDER_BY_WEIGHT:
-            const orderDogsKg = payload === "weight_asc" ?
+            const orderAllDogsKg = payload === "weight_asc" ?
                 state.allDogs.slice().sort(function(a, b) {
                     if(parseInt(a.weight_min) < parseInt(b.weight_min)) {return -1}
                     if(parseInt(b.weight_min) < parseInt(a.weight_min)) {return 1}
@@ -67,23 +79,35 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     if(parseInt(a.weight_max) > parseInt(b.weight_max)) {return 1}
                     return 0;
         })
+        const orderFilteredDogsKg = payload === "weight_asc" ?
+                state.filteredDogs.slice().sort(function(a, b) {
+                    if(parseInt(a.weight_min) < parseInt(b.weight_min)) {return -1}
+                    if(parseInt(b.weight_min) < parseInt(a.weight_min)) {return 1}
+                    return 0;
+                }) : 
+                state.filteredDogs.slice().sort(function(a, b) {
+                    if(parseInt(a.weight_max) > parseInt(b.weight_max)) {return -1}
+                    if(parseInt(a.weight_max) > parseInt(b.weight_max)) {return 1}
+                    return 0;
+        })
         return {
-        ...state,
-        allDogs: orderDogsKg
+            ...state,
+            allDogs: orderAllDogsKg,
+            filteredDogs: orderFilteredDogsKg,
         }
         case FILTER_BY_TEMPERAMENT:
-            const dogsTemperament = state.filteredDogs
-            const filter = payload === 'All' ? dogsTemperament : dogsTemperament.filter(d => ((d.temperament) || []).includes(payload))
+            const dogsTemperament = state.allDogs
+            const filter = payload === 'All' ? state.filteredDogs : dogsTemperament.filter(d => ((d.temperament) || []).includes(payload))
             return {
                 ...state,
-                allDogs: filter
+                filteredDogs: filter
             }
         case FILTER_CREATED_DOGS:
-            const all = state.filteredDogs
+            const all = state.allDogs
             const createFilter = payload === 'Created by users' ?  all.filter(d => d.createdByUser) : all.filter(d => !d.createdByUser);
             return {
                 ...state,
-                allDogs: payload === "All" ? all : createFilter
+                filteredDogs: payload === "All" ? state.filteredDogs : createFilter
             }
         default:
             return state
