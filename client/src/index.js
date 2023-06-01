@@ -8,7 +8,8 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import axios from 'axios';
 
-axios.defaults.baseURL = "http://localhost:3001"
+/* axios.defaults.baseURL = "http://localhost:3001" */
+axios.defaults.baseURL = "https://dogs-app-backend-production-7aa9.up.railway.app"
 
 ReactDOM.render(
     <Provider store={store}>
