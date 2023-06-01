@@ -9,21 +9,25 @@ import FilterByTemperament from "../../components/Home/Filters/FilterByTemperame
 import styles from "./index.module.css"
 import Sort from "../../components/Home/Sort";
 import Swal from "sweetalert2"
+import LeftArrow from "../../components/SVG/LeftArrow";
+import RightArrow from "../../components/SVG/RightArrow";
 
 export default function Home() {
     let dispatch = useDispatch()
     let allDogs = useSelector((state) => state.filteredDogs)
     const [search, setSearch] = useState('')
     const filtered = allDogs.filter(d => d.name.toLowerCase().includes(search.toLowerCase()))
-    let [currentPage, setCurrentPage] = useState(0)
-    let [numberPage, setNumberPage] = useState(1)
+    let [currentPage, setCurrentPage] = useState(1)
+    const [perPage, setPerPage] = useState(8)
+    const max = Math.ceil(filtered?.length / perPage)
+
     useEffect(() => {
         dispatch(getAllDogs())
     }, [dispatch])
 
     function filteredDog() {
         if(search.length === 0) {
-            return allDogs.slice(currentPage, currentPage + 8);
+            return allDogs
         } 
         if(filtered.length === 0) {
             Swal.fire({
@@ -32,49 +36,50 @@ export default function Home() {
                 icon: "error",
                 timer: 3000,
             });
-            setCurrentPage(0)
-            setNumberPage(1)
+            setCurrentPage(1)
             setSearch("")
         } 
-        return filtered.slice(currentPage, currentPage + 8)
+        return filtered
     }
 
     function handleNextPage() {
-        if(allDogs.filter(d => d.name.includes(search)).length > currentPage + 8) {
-            setCurrentPage(currentPage + 8)
-            setNumberPage(numberPage + 1)
+        if(currentPage < max) {
+            /* setInput(input + 1) */
+            setCurrentPage(currentPage + 1)
         }
     }
 
     function handlePrevPage() {
-        if(currentPage > 0) {
-            setCurrentPage(currentPage - 8)
-            setNumberPage(numberPage - 1)
+        if(currentPage > 1) {
+            /* setInput(input - 1) */
+            setCurrentPage(currentPage - 1)
         }
     }
 
     function handleOnSearch(e) {
-        setCurrentPage(0)
+        setCurrentPage(1)
         setSearch(e.target.value)
-        setNumberPage(1)
     }
 
     return (
         <div>
             <NavBar />
             <h1 className={styles.title}>Search your favorite breeds!</h1>
-            <div className={styles.pagesContainer} >
-                {numberPage}
-                <button className={styles.pagesButtons} onClick={handlePrevPage}>{"<"}</button>
+            <div className={styles.floatContainer} >
                 <input className={styles.inputs} onChange={handleOnSearch} placeholder="Search Dogs" type="text" value={search} />
-                <CreatedByUser currentPage={currentPage} setCurrentPage={setCurrentPage} setNumberPage={setNumberPage}  />
-                <FilterByTemperament currentPage={currentPage} setCurrentPage={setCurrentPage} setNumberPage={setNumberPage} />
-                <Sort currentPage={currentPage} setCurrentPage={setCurrentPage} setNumberPage={setNumberPage}  />
-                <button className={styles.pagesButtons} onClick={handleNextPage}>{">"}</button>
+                <CreatedByUser currentPage={currentPage} setCurrentPage={setCurrentPage}  />
+                <FilterByTemperament currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                <Sort currentPage={currentPage} setCurrentPage={setCurrentPage}  />
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                    <button className={styles.pagesButtons} onClick={handlePrevPage}><LeftArrow /></button>
+                    {currentPage} of {max}
+                    <button className={styles.pagesButtons} onClick={handleNextPage}><RightArrow /></button>
+                </div>
             </div>
             {
-                allDogs.length !== 0 ? filteredDog().map((d) => {
-
+                allDogs.length !== 0 ? filteredDog()
+                .slice((currentPage - 1) * perPage, (currentPage - 1) * perPage + perPage)
+                .map((d) => {
                     if(Array.isArray(d.temperaments)) {
                         d.temperaments = d.temperaments.map(t => t.name)
                         d.temperaments = d.temperaments.join(", ")
