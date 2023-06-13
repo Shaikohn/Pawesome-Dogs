@@ -1,4 +1,5 @@
 import { CLEAR_PAGE, FILTER_CREATED_DOGS, FILTER_BY_TEMPERAMENT, GET_ALL_DOGS, GET_DOG_DETAILS, GET_TEMPERAMENT, ORDER_BY_NAME, ORDER_BY_WEIGHT, POST_DOG, SEARCH_DOGS } from "../actions";
+import Swal from "sweetalert2";
 
 const initialState = {
     allDogs: [],
@@ -98,16 +99,34 @@ const rootReducer = (state = initialState, {type, payload}) => {
         case FILTER_BY_TEMPERAMENT:
             const dogsTemperament = state.allDogs
             const filter = payload === 'All' ? state.filteredDogs : dogsTemperament.filter(d => ((d.temperament) || []).includes(payload))
-            return {
+            if(filter.length < 1) {
+                Swal.fire({
+                    title: "Error",
+                    text: 'Sorry, we couldnt find any breed',
+                    icon: "error",
+                    timer: 3000,
+                });
+            } else {
+                return {
                 ...state,
                 filteredDogs: filter
+            }
             }
         case FILTER_CREATED_DOGS:
             const all = state.allDogs
             const createFilter = payload === 'Created by users' ?  all.filter(d => d.createdByUser) : all.filter(d => !d.createdByUser);
-            return {
-                ...state,
-                filteredDogs: payload === "All" ? state.filteredDogs : createFilter
+            if(createFilter.length < 1) {
+                Swal.fire({
+                    title: "Error",
+                    text: 'Sorry, we couldnt find any breed',
+                    icon: "error",
+                    timer: 3000,
+                });
+            } else {
+                return {
+                    ...state,
+                    filteredDogs: payload === "All" ? state.filteredDogs : createFilter
+                }
             }
         default:
             return state

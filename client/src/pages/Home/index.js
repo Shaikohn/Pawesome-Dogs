@@ -65,7 +65,9 @@ export default function Home() {
         <div>
             <NavBar />
             <h1 className={styles.title}>Search your favorite breeds!</h1>
-            <div className={styles.floatContainer} >
+            {
+                allDogs.length !== 0 ?
+                <div className={styles.floatContainer} >
                 <input className={styles.inputs} onChange={handleOnSearch} placeholder="Search Dogs" type="text" value={search} />
                 <CreatedByUser currentPage={currentPage} setCurrentPage={setCurrentPage}  />
                 <FilterByTemperament currentPage={currentPage} setCurrentPage={setCurrentPage} />
@@ -75,7 +77,8 @@ export default function Home() {
                     {currentPage} of {max}
                     <button className={styles.pagesButtons} onClick={handleNextPage}><RightArrow /></button>
                 </div>
-            </div>
+            </div> : ''
+            }
             {
                 allDogs.length !== 0 ? filteredDog()
                 .slice((currentPage - 1) * perPage, (currentPage - 1) * perPage + perPage)
