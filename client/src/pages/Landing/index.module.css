@@ -14,6 +14,33 @@
     width: 500px;
 }
 
+@media (max-width: 480px) {
+    .dog {
+        display: block;
+        height: 200px;
+        width: 150px;
+    }
+    .imagesContainer {
+        border: solid 2px aqua;
+        display: flex;
+        flex-wrap: wrap;
+        width: 150px  !important;
+        /* margin-left: 40px;
+        margin-top: 20px;
+        width: 240px; */
+    }
+    .navBar {
+        align-items: center;
+        background-color: white;
+        border-radius: 10px;
+        height: 210px;
+        margin-left: 10px !important;
+        margin-top: 200px;
+        text-align: center;
+    /*     padding: 34px 30px; */
+    }
+}
+
 .homeButton {
     background-color: rgb(70, 151, 151);
     border-color: rgb(173, 5, 5);

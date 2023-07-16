@@ -11,6 +11,7 @@
 
 .pagesContainer {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin: 10px;
     text-align: center;
@@ -36,13 +37,58 @@
 .floatContainer {
     display: inline;
     position:fixed;
-  width: 200px;
-  height: 400px;
-  right: 100px;
-  background-color: white;
-  border-radius:50px;
-  text-align: center;
+    width: 200px;
+    height: 400px;
+    right: 100px;
+    background-color: white;
+    border-radius:50px;
+    text-align: center;
     transition: .4s;
-  box-shadow: 2px 2px 3px rgb(51, 94, 211);
-  z-index: 1;
-  }
+    box-shadow: 2px 2px 3px rgb(51, 94, 211);
+    z-index: 1;
+/*     display: none; */
+}
+
+@media (max-width: 480px) {
+    .inputs {
+        border: solid 1px #222;
+        border-radius: 5px;
+        box-sizing: border-box;
+        height: 50px;
+        width: 100px !important;
+        outline: none;
+        padding: 10px;
+        margin: 20px 0 0 45px !important;
+    }
+    .floatContainer {
+        display: flex !important;
+        flex-wrap: wrap;
+        position: relative !important;
+        width: 300px !important;
+        height: auto !important;
+        left: 33px !important;
+        right: 0 !important;
+    }
+    .pagesButtons {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 10px 10px 10px 16px;
+    }
+    .pagesContainer {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 0px 0px 50px;
+        text-align: center;
+    }
+    .title {
+        color: white;
+        font-family: 'Dancing Script', cursive;
+        font-size: 20px;
+        text-align: left;
+        margin-left: 40px;
+    }
+}

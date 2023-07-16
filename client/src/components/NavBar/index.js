@@ -12,7 +12,7 @@ export default function NavBar() {
 
     return (
         <div className={styles.navContainer}>
-            <button className={styles.button} onClick={handleClick}>{"<== Go Back"}</button>
+            {/* <button className={styles.button} onClick={handleClick}>{"<== Go Back"}</button> */}
             <Link to="/dogs" className={styles.linkStyle}>Home</Link>
             <Link to="/dogs/create" className={styles.linkStyle}>Create a Breed</Link> 
         </div>

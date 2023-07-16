@@ -18,7 +18,7 @@ export default function CreatedByUser ({setCurrentPage}) {
             <select className={styles.selector} onChange={handleSelect}>
                 <option defaultValue value="All">All Dogs</option>
                 <option value="Api">API Dogs</option>
-                <option value="Created by users">Dogs created by users</option>
+                <option value="Created by users">Users Dogs</option>
             </select>
         </div>
     )

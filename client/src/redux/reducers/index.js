@@ -106,6 +106,10 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     icon: "error",
                     timer: 3000,
                 });
+                return {
+                    ...state,
+                    filteredDogs: state.allDogs
+                }
             } else {
                 return {
                 ...state,
@@ -122,6 +126,10 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     icon: "error",
                     timer: 3000,
                 });
+                return {
+                    ...state,
+                    filteredDogs: state.allDogs
+                }
             } else {
                 return {
                     ...state,

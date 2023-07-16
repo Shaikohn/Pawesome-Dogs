@@ -72,7 +72,7 @@ export default function Home() {
                 <CreatedByUser currentPage={currentPage} setCurrentPage={setCurrentPage}  />
                 <FilterByTemperament currentPage={currentPage} setCurrentPage={setCurrentPage} />
                 <Sort currentPage={currentPage} setCurrentPage={setCurrentPage}  />
-                <div style={{display: 'flex', alignItems: 'center'}}>
+                <div className={styles.pagesContainer}>
                     <button className={styles.pagesButtons} onClick={handlePrevPage}><LeftArrow /></button>
                     {currentPage} of {max}
                     <button className={styles.pagesButtons} onClick={handleNextPage}><RightArrow /></button>
