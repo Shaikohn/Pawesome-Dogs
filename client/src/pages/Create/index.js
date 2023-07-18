@@ -172,21 +172,21 @@ export default function Create() {
     return (
         <div>
             <NavBar />
-            <div style={{display: 'flex'}}>
+            <div className={styles.fullContainer}>
             <form className={styles.form} onSubmit={handleSubmit} >
                 <h1 className={styles.title}>Add a breed!</h1>
                 <div style={{display: 'flex'}}>
-                    <label className={styles.label} style={{marginLeft: '120px'}} htmlFor="name">Name</label> 
-                    <label style={{marginLeft: '160px'}} className={styles.label} htmlFor="image">Image</label>
+                    <label className={`${styles.label} ${styles.marginLabel}`} htmlFor="name">Name</label> 
+                    <label className={`${styles.label} ${styles.marginLabel}`} htmlFor="image">Image</label>
                 </div>
                 <div style={{display: 'flex'}} className={styles.container}>
                     <input autoComplete="off" className={styles.inputs} name="name" type="text" placeholder='Name' value={input.name} onChange={handleChange}  />
                     <input autoComplete="off" className={styles.inputs} type="text" name="image" onChange={handleChange} placeholder="Insert an URL" value={input.image} />
                 </div>
-                <div style={{display: 'flex'}}>
+                <div className={styles.labelsContainer}>
                     <label className={styles.label} style={{marginLeft: '60px'}} htmlFor="life_span">Life Span</label>
                     <label className={styles.label} style={{marginLeft: '50px'}} htmlFor="weight">Weight (KG)</label>
-                    <label  className={styles.label} style={{marginLeft: '33px'}} htmlFor="height">Height (CM)</label>
+                    <label className={styles.label} style={{marginLeft: '33px'}} htmlFor="height">Height (CM)</label>
                 </div>
                 <div className={styles.container}>
                     <div className={styles.groupsContainer}>
@@ -197,10 +197,28 @@ export default function Create() {
                         <input autoComplete="off" className={styles.groupsInputs} name="height_min" type="text" placeholder='Min' value={input.height_min} onChange={handleChange} />
                         <input autoComplete="off" className={styles.groupsInputs} name="height_max" type="text" placeholder='Max' value={input.height_max} onChange={handleChange} />
                     </div>
-                        
+                </div>
+                <div className={styles.mobileLabels}>
+                    <label className={styles.label} style={{marginLeft: '30px'}} htmlFor="life_span">Life Span</label>
+                    <label className={styles.label} htmlFor="weight">Weight (KG)</label>
+                    <label className={styles.label} htmlFor="height">Height (CM)</label>
                 </div>
                 <div className={styles.container}>
-                    <label className={styles.label} style={{marginLeft: '110px'}} htmlFor="temperament">Temperaments</label>
+                    <div className={styles.mobileContainer}>
+                        <div>
+                        <input autoComplete="off" className={styles.mobileInputs} name="life_span_min" type="text" placeholder='Min' value={input.life_span_min} onChange={handleChange} />
+                        <input autoComplete="off" className={styles.mobileInputs} name="weight_min" type="text" placeholder='Min' value={input.weight_min} onChange={handleChange} />
+                        <input autoComplete="off" className={styles.mobileInputs} name="height_min" type="text" placeholder='Min' value={input.height_min} onChange={handleChange} />
+                        </div>
+                        <div>
+                        <input autoComplete="off" className={styles.mobileInputs} name="life_span_max" type="text" placeholder='Max' value={input.life_span_max} onChange={handleChange} />
+                        <input autoComplete="off" className={styles.mobileInputs} name="weight_max" type="text" placeholder='Max' value={input.weight_max} onChange={handleChange} /> 
+                        <input autoComplete="off" className={styles.mobileInputs} name="height_max" type="text" placeholder='Max' value={input.height_max} onChange={handleChange} />
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.container}>
+                    <label className={`${styles.label} ${styles.marginTemperaments}`} htmlFor="temperament">Temperaments</label>
                     <select className={styles.temperamentInput} name="temperament"  type="text" multiple={true} placeholder='temperament' value={input.temperament} onChange={handleSelect}>
                     {
                         temperaments.map((t) => {

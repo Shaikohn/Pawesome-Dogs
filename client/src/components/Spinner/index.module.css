@@ -46,3 +46,10 @@
     transform: rotate(358deg);
     }
 }
+
+@media (max-width: 480px) {
+    .loadingContainer {
+        height: 500px;
+        width: 400px;
+    }
+}

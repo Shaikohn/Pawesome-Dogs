@@ -10,7 +10,7 @@ export default function DogDetails() {
     const {id} = useParams()
     const dispatch = useDispatch()
     const dog = useSelector((state) => state.details) 
-    console.log(dog)
+    /* console.log(dog) */
     useEffect(() => {
         dispatch(getDogDetails(id))
         return () => {
