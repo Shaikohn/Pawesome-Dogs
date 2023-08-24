@@ -49,7 +49,7 @@ export default function Details({dog}) {
             {
             <div className={styles.container} key={dog?.id}>
                 <div>
-                    <img alt={dog?.name} className={styles.image} src={`https://api.thedogapi.com/v1/images/${dog?.image}.jpg`} /> 
+                    <img alt={dog?.name} className={styles.image} src={`https://cdn2.thedogapi.com/images/${dog?.image}.jpg`} /> 
                 </div>
             <div className={styles.infoContainer}>
                 <div>

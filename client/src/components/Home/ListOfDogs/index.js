@@ -5,7 +5,7 @@ export default function Dog ({name, image, id, temperament, weight_min, weight_m
     return (
         <Link className={styles.container} to={`/dogs/${id}`} key={id}>
             <div className={styles.div_image} >
-                <img alt={name} className={styles.image} src={`https://api.thedogapi.com/v1/images/${image}.jpg`} />
+                <img alt={name} className={styles.image} src={`https://cdn2.thedogapi.com/images/${image}.jpg`} />
             </div>
             <div className={styles.div_info}>
                 <div>
