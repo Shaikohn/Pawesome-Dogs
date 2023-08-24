@@ -2,7 +2,7 @@
     border: solid 2px aqua;
     display: flex;
     flex-wrap: wrap;
-    width: 1000px;
+    width: 950px;
     /* margin-left: 40px;
     margin-top: 20px;
     width: 240px; */
@@ -11,7 +11,7 @@
 .dog {
     display: block;
     height: 310px;
-    width: 500px;
+    width: 475px;
 }
 
 @media (max-width: 480px) {
@@ -67,7 +67,7 @@
     background-color: white;
     border-radius: 10px;
     height: 210px;
-    margin-left: 80px;
+    margin-left: 50px;
     margin-top: 200px;
     text-align: center;
 /*     padding: 34px 30px; */
