@@ -2,7 +2,8 @@
     background-color: aliceblue;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    height: 180px;
+    height: auto;
+    max-height: 202px;
 }
 
 .div_info {
@@ -11,6 +12,7 @@
     border-bottom-right-radius: 10px;
     color: #000000;
     font-family: 'Dancing Script', cursive;
+    max-height: 200px;
     padding: 10px;
     width: 350px;
 }
@@ -18,7 +20,7 @@
 .image {
     border: 2px solid rgb(70, 151, 151);
     border-radius: 20px;
-    height: 176px;
+    height: 98%;
     width: 240px;
 }
 
@@ -62,7 +64,7 @@
         background: none !important;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
-        height: auto;
+        height: 201;
         width: 260px;
     }
     .image {
