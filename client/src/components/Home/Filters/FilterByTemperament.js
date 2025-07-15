@@ -1,35 +1,39 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getTemperament, filterByTemperament } from "../../../redux/actions"
-import styles from "./Temperament.module.css"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTemperament, filterByTemperament } from "../../../redux/actions";
 
+export default function FilterByTemperament({ setCurrentPage }) {
+  const dispatch = useDispatch();
+  const temp = useSelector((state) => state.temperaments);
 
-export default function FilterByTemperament({setCurrentPage}) {
+  function handleFilter(e) {
+    const value = e.target.value;
+    setCurrentPage(1);
+    dispatch(filterByTemperament(value));
+  }
 
-    const dispatch = useDispatch()
-    const temp = useSelector(state => state.temperaments)
+  useEffect(() => {
+    dispatch(getTemperament());
+  }, [dispatch]);
 
-    function handleFilter(e) {
-        const value = e.target.value
-        setCurrentPage(1)
-        dispatch(filterByTemperament(value))
-    }
-
-    useEffect(() => {
-        dispatch(getTemperament())
-    }, [dispatch])
-
-    return (
-        <div>
-            <select className={styles.selector} onChange={handleFilter}>
-                <option defaultValue disabled>Select One</option>
-                <option value="All">All Temperaments</option>
-                    {temp && temp.map((t, i) => {
-                        return (
-                            <option value={t.name} key={i}>{t.name}</option>
-                            )
-                    })}
-            </select>
-        </div>
-    )
+  return (
+    <div className="mb-4">
+      <select
+        onChange={handleFilter}
+        className="px-4 py-2 rounded-lg bg-white border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-300 transition text-sm"
+        defaultValue=""
+      >
+        <option value="" disabled>
+          Select One
+        </option>
+        <option value="All">All Temperaments</option>
+        {temp &&
+          temp.map((t, i) => (
+            <option key={i} value={t.name}>
+              {t.name}
+            </option>
+          ))}
+      </select>
+    </div>
+  );
 }

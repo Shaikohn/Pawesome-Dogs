@@ -20,7 +20,7 @@ router.get("/", async(req, res, next) => {
                 return {
                     id: d.id,
                     name: d.name,
-                    image: d.reference_image_id,
+                    image: `https://cdn2.thedogapi.com/images/${d.reference_image_id}.jpg`,
                     weight_min: d.weight.metric.slice(0, 2).trim(),
                     weight_max: d.weight.metric.slice(-2).trim(),
                     origin: d.origin,
@@ -40,7 +40,7 @@ router.get("/", async(req, res, next) => {
                 return {
                     id: d.id,
                     name: d.name,
-                    image: d.reference_image_id,
+                    image: `https://cdn2.thedogapi.com/images/${d.reference_image_id}.jpg`,
                     weight_min: d.weight.metric.slice(0, 2).trim(),
                     weight_max: d.weight.metric.slice(-2).trim(),
                     origin: d.origin,
@@ -70,7 +70,7 @@ router.get("/:id", async (req, res, next) => {
                 return {
                     id: d.id,
                     name: d.name,
-                    image: d.reference_image_id,
+                    image: `https://cdn2.thedogapi.com/images/${d.reference_image_id}.jpg`,
                     weight_min: d.weight.metric.slice(0, 2).trim(),
                     weight_max: d.weight.metric.slice(-2).trim(),
                     height_min: d.height.metric.slice(0, 2).trim(),

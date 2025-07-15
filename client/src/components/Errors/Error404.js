@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import sad_dog from "../../dog-sad.gif"
+import sad_dog from "../../assets/dog-sad.gif"
 import styles from "./Error404.module.css"
 
 export default function Error404() {

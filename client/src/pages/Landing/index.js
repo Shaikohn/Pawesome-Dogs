@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import pug from "../../pug.jpg";
-import golden from "../../golden.jpg";
-import family from "../../family.jpg";
-import littleDog from "../../littleDog.jpg";
+import pug from "../../assets/pug.jpg";
+import golden from "../../assets/golden.jpg";
+import family from "../../assets/family.jpg";
+import littleDog from "../../assets/littleDog.jpg";
 
 export default function Landing() {
     return (
