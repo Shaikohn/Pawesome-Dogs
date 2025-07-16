@@ -74,6 +74,7 @@ export default function Create() {
 
         setInput({...input , temperament:[...input.temperament, selectName]})
         setSelectNameState([...selectNameState, temperaments.find(e => e.id === parseInt(selectName))])
+        setErrors(validate({ ...input, [e.target.name]: e.target.value }))
     }
 
     function handleSubmit(e){
@@ -99,8 +100,9 @@ export default function Create() {
     }
 
     function handleDelete(e) {
-        setInput({...input, temperament : input.temperament.filter(t => t !== e.target.value)})
+        setInput({...input, temperament: input.temperament.filter(t => t !== e.target.value)})
         setSelectNameState(selectNameState.filter(t => t.id !== parseInt(e.target.value)))
+        setErrors(validate({ ...input, temperament: input.temperament.filter(t => t !== e.target.value) }))
     }
 
     return (
