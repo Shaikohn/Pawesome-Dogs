@@ -22,6 +22,7 @@ export default function Filters({ setCurrentPage }) {
         } else {
             dispatch(filterCreatedDogs(dogValue));
             dispatch(filterByTemperament(temperamentValue));
+            
         }
     }
 

@@ -4,8 +4,6 @@ import { getAllDogs } from "../../redux/actions";
 import Dog from "../../components/Home/ListOfDogs";
 import NavBar from "../../components/NavBar";
 import Spinner from "../../components/Spinner";
-import CreatedByUser from "../../components/Home/Filters/CreatedByUser";
-import FilterByTemperament from "../../components/Home/Filters/FilterByTemperament";
 import Sort from "../../components/Home/Sort";
 import Swal from "sweetalert2";
 import Filters from "../../components/Home/Filters/Filters";

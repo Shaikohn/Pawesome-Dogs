@@ -105,9 +105,12 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     icon: "error",
                     timer: 3000,
                 });
+                document.getElementById("dogs").value = "All";
+                document.getElementById("temperaments").value = "All";
                 return {
                     ...state,
                     filteredDogs: state.allDogs
+                    
                 }
             } else {
                 return {
@@ -125,6 +128,8 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     icon: "error",
                     timer: 3000,
                 });
+                document.getElementById("dogs").value = "All";
+                document.getElementById("temperaments").value = "All";
                 return {
                     ...state,
                     filteredDogs: state.allDogs
