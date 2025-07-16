@@ -63,10 +63,10 @@ export default function Home() {
         <NavBar />
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-center text-sky-700 tracking-tight mt-8 animate-fade-in">
-                🐶 Explorá las razas más increíbles del mundo 🐾
+                🐶 Explore the Most Amazing Dog Breeds in the World 🐾
             </h1>
             <p className="text-lg sm:text-xl text-center text-sky-600 mt-4 mb-8 max-w-3xl mx-auto animate-fade-in delay-100">
-                Filtrá, ordená y descubrí tu compañero ideal entre más de 100 razas diferentes. 
+                Filter, sort, and discover your ideal companion among over 100 unique breeds.
             </p>
             {allDogs.length !== 0 && (
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
