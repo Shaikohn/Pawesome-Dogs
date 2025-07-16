@@ -97,8 +97,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
             filteredDogs: orderFilteredDogsKg,
         }
         case FILTER_BY_TEMPERAMENT:
-            const dogsTemperament = state.allDogs
-            const filter = payload === 'All' ? state.filteredDogs : dogsTemperament.filter(d => ((d.temperament) || []).includes(payload))
+            const filter = payload === 'All' ? state.filteredDogs : state.filteredDogs.filter(d => ((d.temperament) || []).includes(payload))
             if(filter.length < 1) {
                 Swal.fire({
                     title: "Error",
@@ -133,7 +132,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
             } else {
                 return {
                     ...state,
-                    filteredDogs: payload === "All" ? state.filteredDogs : createFilter
+                    filteredDogs: payload === "All" ? state.allDogs : createFilter
                 }
             }
         default:

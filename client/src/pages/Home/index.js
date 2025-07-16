@@ -8,6 +8,7 @@ import CreatedByUser from "../../components/Home/Filters/CreatedByUser";
 import FilterByTemperament from "../../components/Home/Filters/FilterByTemperament";
 import Sort from "../../components/Home/Sort";
 import Swal from "sweetalert2";
+import Filters from "../../components/Home/Filters/Filters";
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -78,8 +79,9 @@ export default function Home() {
                         className="w-full sm:w-1/3 px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400 transition text-gray-700"
                     />
                     <div className="flex flex-wrap gap-4 items-center">
-                        <CreatedByUser setCurrentPage={setCurrentPage} />
-                        <FilterByTemperament setCurrentPage={setCurrentPage} />
+                        {/* <CreatedByUser setCurrentPage={setCurrentPage} />
+                        <FilterByTemperament setCurrentPage={setCurrentPage} /> */}
+                        <Filters setCurrentPage={setCurrentPage} />
                         <Sort setCurrentPage={setCurrentPage} />
                     </div>
                 </div>
