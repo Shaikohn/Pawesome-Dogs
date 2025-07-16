@@ -3,43 +3,42 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import { getTemperament, postDog } from '../../redux/actions';
 import Swal from "sweetalert2"
-import addBreedImage from "../../assets/addBreed.jpg"
 
 function validate(value) {
-  let errors = {};
-  if (!value.image) errors.image = "An image is required!";
-  if (!value.name) errors.name = "Name is required!";
-  else if (!/[A-Z]+$/i.test(value.name)) errors.name = "The name should only contain letters!";
-  else if (value.name.length >= 25) errors.name = "The name should contain less than 25 characters!";
+    let errors = {};
+    if (!value.image) errors.image = "An image is required!";
+    if (!value.name) errors.name = "Name is required!";
+    else if (!/[A-Z]+$/i.test(value.name)) errors.name = "The name should only contain letters!";
+    else if (value.name.length >= 25) errors.name = "The name should contain less than 25 characters!";
 
-  if (!value.life_span_max) errors.life_span_max = "Life span max is required!";
-  else if (!/^[0-9]+$/.test(value.life_span_max)) errors.life_span_max = "The max should only contain numbers!";
+    if (!value.life_span_max) errors.life_span_max = "Life span max is required!";
+    else if (!/^[0-9]+$/.test(value.life_span_max)) errors.life_span_max = "The max should only contain numbers!";
 
-  if (!value.life_span_min) errors.life_span_min = "Life span min is required!";
-  else if (parseInt(value.life_span_min) < 0) errors.life_span_min = "The min should be more than 0 years!";
-  else if (parseInt(value.life_span_min) >= parseInt(value.life_span_max)) errors.life_span_min = "The min should be less than the max!";
-  else if (!/^[0-9]+$/.test(value.life_span_min)) errors.life_span_min = "The min should only contain numbers!";
+    if (!value.life_span_min) errors.life_span_min = "Life span min is required!";
+    else if (parseInt(value.life_span_min) < 0) errors.life_span_min = "The min should be more than 0 years!";
+    else if (parseInt(value.life_span_min) >= parseInt(value.life_span_max)) errors.life_span_min = "The min should be less than the max!";
+    else if (!/^[0-9]+$/.test(value.life_span_min)) errors.life_span_min = "The min should only contain numbers!";
 
-  if (!value.weight_max) errors.weight_max = "Weight max is required!";
-  else if (parseInt(value.weight_max) > 90) errors.weight_max = "The max should be less than 90 KG!";
-  else if (!/^[0-9]+$/.test(value.weight_max)) errors.weight_max = "The max should only contain numbers!";
+    if (!value.weight_max) errors.weight_max = "Weight max is required!";
+    else if (parseInt(value.weight_max) > 90) errors.weight_max = "The max should be less than 90 KG!";
+    else if (!/^[0-9]+$/.test(value.weight_max)) errors.weight_max = "The max should only contain numbers!";
 
-  if (!value.weight_min) errors.weight_min = "Weight min is required!";
-  else if (parseInt(value.weight_min) < 0) errors.weight_min = "The min should be more than 0 KG!";
-  else if (parseInt(value.weight_min) >= parseInt(value.weight_max)) errors.weight_min = "The min should be less than the max!";
-  else if (!/^[0-9]+$/.test(value.weight_min)) errors.weight_min = "The min should only contain numbers!";
+    if (!value.weight_min) errors.weight_min = "Weight min is required!";
+    else if (parseInt(value.weight_min) < 0) errors.weight_min = "The min should be more than 0 KG!";
+    else if (parseInt(value.weight_min) >= parseInt(value.weight_max)) errors.weight_min = "The min should be less than the max!";
+    else if (!/^[0-9]+$/.test(value.weight_min)) errors.weight_min = "The min should only contain numbers!";
 
-  if (!value.height_max) errors.height_max = "Height max is required!";
-  else if (parseInt(value.height_max) > 85) errors.height_max = "The max should be less than 85 CM!";
-  else if (!/^[0-9]+$/.test(value.height_max)) errors.height_max = "The max should only contain numbers!";
+    if (!value.height_max) errors.height_max = "Height max is required!";
+    else if (parseInt(value.height_max) > 85) errors.height_max = "The max should be less than 85 CM!";
+    else if (!/^[0-9]+$/.test(value.height_max)) errors.height_max = "The max should only contain numbers!";
 
-  if (!value.height_min) errors.height_min = "Height min is required!";
-  else if (parseInt(value.height_min) < 0) errors.height_min = "The min should be more than 0 CM!";
-  else if (parseInt(value.height_min) >= parseInt(value.height_max)) errors.height_min = "The min should be less than the max!";
-  else if (!/^[0-9]+$/.test(value.height_min)) errors.height_min = "The min should only contain numbers!";
+    if (!value.height_min) errors.height_min = "Height min is required!";
+    else if (parseInt(value.height_min) < 0) errors.height_min = "The min should be more than 0 CM!";
+    else if (parseInt(value.height_min) >= parseInt(value.height_max)) errors.height_min = "The min should be less than the max!";
+    else if (!/^[0-9]+$/.test(value.height_min)) errors.height_min = "The min should only contain numbers!";
 
-  if (value.temperament.length === 0) errors.temperament = "At least one temperament is required!";
-  return errors;
+    if (value.temperament.length === 0) errors.temperament = "At least one temperament is required!";
+    return errors;
 }
 
 export default function Create() {
@@ -110,12 +109,11 @@ export default function Create() {
             <div className="max-w-5xl mx-auto p-6">
                 <form onSubmit={handleSubmit} className="bg-white bg-opacity-80 backdrop-blur rounded-xl p-8 shadow-md">
                     <h1 className="text-4xl sm:text-5xl font-extrabold text-center text-sky-700 tracking-tight mb-4 animate-fade-in">
-  🐾 Let's Create a New Best Friend! 🐶
-</h1>
-<p className="text-center text-sky-600 text-lg sm:text-xl mb-8 max-w-2xl mx-auto animate-fade-in delay-100">
-  Fill in the details below to design your own unique dog breed and add it to our collection.
-</p>
-
+                        🐾 Let's Create a New Best Friend! 🐶
+                    </h1>
+                    <p className="text-center text-sky-600 text-lg sm:text-xl mb-8 max-w-2xl mx-auto animate-fade-in delay-100">
+                        Fill in the details below to design your own unique dog breed and add it to our collection.
+                    </p>
                     <div className="grid sm:grid-cols-2 gap-4 mb-6">
                         <input name="name" type="text" placeholder="Name" value={input.name} onChange={handleChange} className="w-full px-4 py-2 rounded-xl ring-1 ring-sky-200 shadow-md bg-white bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-sky-400 transition" />
                         <input name="image" type="text" placeholder="Insert an image URL" value={input.image} onChange={handleChange} className="w-full px-4 py-2 rounded-xl ring-1 ring-sky-200 shadow-md bg-white bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-sky-400 transition" />
@@ -172,8 +170,8 @@ export default function Create() {
                         </div>
                     )}
                     <div className="mt-8 bg-sky-100 bg-opacity-70 rounded-xl p-4 text-sky-800 shadow-inner text-sm sm:text-base text-center max-w-2xl mx-auto">
-  💡 <strong>Tip:</strong> You can use any valid image URL or you can try with a random URL from <a href="https://api.thedogapi.com/v1/images/search" target="_blank" rel="noopener noreferrer" className="text-sky-600 underline hover:text-sky-800">The Dog API</a>!
-</div>
+                        <strong>Tip:</strong> You can use any valid image URL or you can try with a random URL from <a href="https://api.thedogapi.com/v1/images/search" target="_blank" rel="noopener noreferrer" className="text-sky-600 underline hover:text-sky-800">The Dog API</a>!
+                    </div>
                 </form>
                 
             </div>
